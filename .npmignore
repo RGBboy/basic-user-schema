@@ -1,0 +1,8 @@
+.DS_Store
+.git*
+.travis*
+Makefile
+example/
+test/
+data/
+*.tmproj
