@@ -2,6 +2,8 @@
 
   A barebones User Model to extend from.
 
+  This is still a WIP, not ready for production yet!
+
   [![Build Status](https://secure.travis-ci.org/RGBboy/basic-user-model.png)](http://travis-ci.org/RGBboy/basic-user-model)
 
 ## Features

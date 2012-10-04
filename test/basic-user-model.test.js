@@ -30,6 +30,15 @@ describe.only('Basic User Model', function () {
     User.remove(done);
   });
 
+  describe('.version', function () {
+
+    it('should match the format x.x.x', function (done) {
+      User.version.should.match(/^\d+\.\d+\.\d+$/);
+      done();
+    });
+
+  });
+
   describe('Static Methods', function () {
 
     describe('.register', function () {
