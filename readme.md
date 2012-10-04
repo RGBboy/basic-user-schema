@@ -1,6 +1,6 @@
 # Basic User Model
 
-  A barebones User Model to extend from.
+  A barebones MongoDB User Model to extend from.
 
   This is still a WIP, not ready for production yet!
 
@@ -25,17 +25,12 @@ Require it:
   User = require('basic-user-model');
 ```
 
-## Requires
-
-  * Mongoose.js
-  * bcrypt
-  * validator (node-validator)
-
 ## Todo
 
   
   * role? emailToken? and emailTokenCreated? Move to an extended module?
   * Figure out how to make an extensible Model.
+  * Make validation errors easy to work with for controllers.
   * Write rest of Model Tests:
     - write tests for id property
     - write tests for instance methods
