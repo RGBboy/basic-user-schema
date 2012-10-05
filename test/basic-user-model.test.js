@@ -12,7 +12,7 @@ var User = require('../index'),
 // TESTS
 // -----
 
-describe.only('Basic User Model', function () {
+describe('Basic User Model', function () {
 
   before(function (done) {
     if (!mongoose.connection.db) {
@@ -227,6 +227,55 @@ describe.only('Basic User Model', function () {
             should.not.exist(user);
             done();
           });
+        });
+
+      });
+
+    });
+
+  });
+
+  describe.only('Instance Methods', function () {
+
+    var user;
+
+    beforeEach(function (done) {
+      user = new User();
+      user.email = 'test@test.com';
+      user.password = 'Password';
+      user.passwordConfirm = 'Password';
+      user.save(function (err, newUser) {
+        if (err) { throw err }
+        User.findOne({email: 'test@test.com'}, function (err, newUser) {
+          if (err) { throw err }
+          user = newUser;
+          done();
+        })
+      })
+    });
+
+    describe('.save', function () {
+
+      describe('when updating the password', function () {
+
+        it('should callback with a validation error when password is missing', function (done) {
+          user.password = undefined;
+          user.passwordConfirm = 'NewPassword';
+          user.save(function (err, savedUser) {
+            should.exist(err)
+            should.not.exist(savedUser);
+            done();
+          })
+        });
+
+        it('should callback with a validation error when passwordConfirm is missing', function (done) {
+          user.password = 'NewPassword';
+          user.passwordConfirm = undefined;
+          user.save(function (err, savedUser) {
+            should.exist(err)
+            should.not.exist(savedUser);
+            done();
+          })
         });
 
       });
