@@ -27,13 +27,14 @@ Require it:
 
 ## Todo
 
-  
   * role? emailToken? and emailTokenCreated? Move to an extended module?
   * Figure out how to make an extensible Model.
   * Make validation errors easy to work with for controllers.
   * Write rest of Model Tests:
     - write tests for id property
     - write tests for instance methods
+  * Change to pass in mongoose? If 2 different versions of mongoose are used in the
+  application the models fail to save.
 
 ## License 
 

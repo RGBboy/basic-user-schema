@@ -9,8 +9,8 @@
     "node": "0.8.x"
   },
   "dependencies": {
-    "mongoose": "3.2.x",
     "bcrypt": "0.7.x",
+    "mongoose": "3.x.x",
     "validator": "0.4.x"
   },
   "devDependencies": {
