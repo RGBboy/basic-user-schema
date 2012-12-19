@@ -25,6 +25,27 @@ Require it:
   UserSchema = require('basic-user-schema');
 ```
 
+Instantiate it:
+
+``` javascript
+  var schema = UserSchema();
+```
+
+Customize it:
+
+``` javascript
+  schema.add({
+    customProperty: { type: String, required: true }
+  });
+```
+
+Model it:
+
+``` javascript
+  var mongoose = require('mongoose'),
+      User = mongoose.model('User', schema);
+```
+
 ## Todo
 
   * role? emailToken? and emailTokenCreated? Move to an extended module?
