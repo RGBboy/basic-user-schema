@@ -4,4 +4,4 @@ node_js:
 services:
   - mongodb
 before_script:
-  - mongo mydb_test --eval 'db.addUser("basic-user-schema-test", "basic-user-schema-test");'
+  - mongo basic-user-schema-test --eval 'db.addUser("basic-user-schema-test", "basic-user-schema-test");'
