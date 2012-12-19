@@ -1,10 +1,10 @@
-# Basic User Model
+# Basic User Schema
 
-  A barebones MongoDB User Model to extend from.
+  A barebones MongoDB User Schema to extend from.
 
   This is still a WIP, not ready for production yet!
 
-  [![Build Status](https://secure.travis-ci.org/RGBboy/basic-user-model.png)](http://travis-ci.org/RGBboy/basic-user-model)
+  [![Build Status](https://secure.travis-ci.org/RGBboy/basic-user-schema.png)](http://travis-ci.org/RGBboy/basic-user-schema)
 
 ## Features
 
@@ -15,26 +15,23 @@
 
 ## Installation
 
-    npm install git://github.com/RGBboy/basic-user-model.git
+    npm install git://github.com/RGBboy/basic-user-schema.git
 
 ## Usage
 
 Require it:
 
 ``` javascript
-  User = require('basic-user-model');
+  UserSchema = require('basic-user-schema');
 ```
 
 ## Todo
 
   * role? emailToken? and emailTokenCreated? Move to an extended module?
-  * Figure out how to make an extensible Model.
   * Make validation errors easy to work with for controllers.
-  * Write rest of Model Tests:
+  * Write rest of Schema Tests:
     - write tests for id property
     - write tests for instance methods
-  * Change to pass in mongoose? If 2 different versions of mongoose are used in the
-  application the models fail to save.
 
 ## License 
 

@@ -1,23 +1,26 @@
-// User Unit Test
+// User Schema Unit Test
 //
 
 // MODULE DEPENDENCIES
 // -------------------
 
-var User = require('../index'),
+var UserSchema = require('../index'),
     mongoose = require('mongoose'),
-    should = require('should'),
-    fakeUser;
+    should = require('should');
 
 // TESTS
 // -----
 
-describe('Basic User Model', function () {
+describe('Basic User Schema', function () {
+
+  var User,
+      fakeUser;
 
   before(function (done) {
     if (!mongoose.connection.db) {
-      mongoose.connect('mongodb://basic-user-model-test:basic-user-model-test@localhost/basic-user-model-test');
+      mongoose.connect('mongodb://basic-user-schema-test:basic-user-schema-test@localhost/basic-user-schema-test');
     };
+    User = mongoose.model('User', UserSchema())
     done();
   });
 
@@ -33,7 +36,7 @@ describe('Basic User Model', function () {
   describe('.version', function () {
 
     it('should match the format x.x.x', function (done) {
-      User.version.should.match(/^\d+\.\d+\.\d+$/);
+      UserSchema.version.should.match(/^\d+\.\d+\.\d+$/);
       done();
     });
 
@@ -49,7 +52,7 @@ describe('Basic User Model', function () {
           User.register(fakeUser, function (err, user) {
             should.not.exist(err);
             should.exist(user);
-            User.find({}, function(err, users) {
+            User.find({}, function (err, users) {
               users.length.should.equal(1);
               done();
             });
@@ -68,7 +71,7 @@ describe('Basic User Model', function () {
         });
 
         it('should create a cryptedPassword if password and passwordConfirm are correct', function (done) {
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(user.cryptedPassword);
             done();
           });
@@ -80,7 +83,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if email is missing', function (done) {
           delete fakeUser.email;
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -88,7 +91,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if if email is empty', function (done) {
           fakeUser.email = '';
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -96,7 +99,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if if email is not a valid email', function (done) {
           fakeUser.email = 'testtest.com';
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -104,7 +107,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if the password and passwordConfirm do not match', function (done) {
           fakeUser.passwordConfirm = 'NotTestPassword';
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -112,7 +115,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if the password is missing', function (done) {
           delete fakeUser.password;
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -120,7 +123,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if the password is empty', function (done) {
           fakeUser.password = '';
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -128,7 +131,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if the passwordConfirm is missing', function (done) {
           fakeUser.passwordConfirm = '';
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -136,7 +139,7 @@ describe('Basic User Model', function () {
 
         it('should callback with an error if the passwordConfirm is empty', function (done) {
           delete fakeUser.passwordConfirm;
-          User.register(fakeUser, function(err, user) {
+          User.register(fakeUser, function (err, user) {
             should.exist(err);
             done();
           });
@@ -235,7 +238,7 @@ describe('Basic User Model', function () {
 
   });
 
-  describe.only('Instance Methods', function () {
+  describe('Instance Methods', function () {
 
     var user;
 

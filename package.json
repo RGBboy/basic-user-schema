@@ -1,7 +1,7 @@
 {
-  "name": "basic-user-model",
-  "version": "0.0.1",
-  "description": "A barebones User Model to extend from.",
+  "name": "basic-user-schema",
+  "version": "0.0.2",
+  "description": "A barebones User Schema to extend from.",
   "keywords": ["template"],
   "author": "RGBboy <me@rgbboy.com>",
   "main": "index",
@@ -9,12 +9,12 @@
     "node": "0.8.x"
   },
   "dependencies": {
-    "bcrypt": "0.7.x",
     "mongoose": "3.x.x",
+    "bcrypt": "0.7.x",
     "validator": "0.4.x"
   },
   "devDependencies": {
-    "mocha": "1.5.x",
+    "mocha": "1.7.x",
     "should": "1.2.x"
   },
   "scripts" : {

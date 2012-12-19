@@ -1,2 +1,2 @@
 
-exports = module.exports = require('./lib/basic-user-model');
+exports = module.exports = require('./lib/basic-user-schema');
