@@ -48,7 +48,7 @@ Model it:
 
 ## Todo
 
-  * role? emailToken? and emailTokenCreated? Move to an extended module?
+  * role? resetToken? and resetTokenCreated? Move to an extended module?
   * Make validation errors easy to work with for controllers.
   * Write rest of Schema Tests:
     - write tests for id property
