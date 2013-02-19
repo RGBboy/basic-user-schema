@@ -149,7 +149,7 @@ describe('Basic User Schema', function () {
 
     });
 
-    describe('.findByEmailToken', function () {
+    describe('.findByResetToken', function () {
 
       beforeEach(function (done) {
         User.register(fakeUser, function (err, user) {
@@ -161,7 +161,7 @@ describe('Basic User Schema', function () {
       describe('when token is valid', function () {
 
         it('should callback with a user', function (done) {
-          User.findByEmailToken(fakeUser.emailToken, function (err, user) {
+          User.findByResetToken(fakeUser.resetToken, function (err, user) {
             should.not.exist(err);
             should.exist(user);
             done();
@@ -174,7 +174,7 @@ describe('Basic User Schema', function () {
 
         it('should callback with nothing if token does not exist', function (done) {
           User.remove(function () {
-            User.findByEmailToken(fakeUser.emailToken, function (err, user) {
+            User.findByResetToken(fakeUser.resetToken, function (err, user) {
               should.not.exist(err);
               should.not.exist(user);
               done();
@@ -186,9 +186,9 @@ describe('Basic User Schema', function () {
           // change tokenCreated to 2 hours ago
           var time = Date.now() - (2 * 60 * 60 * 1000);
           User.findOne({ email: fakeUser.email }, function (err, user) {
-            user.emailTokenCreated = time;
+            user.resetTokenCreated = time;
             user.save(function (err, user) {
-              User.findByEmailToken(user.emailToken, function (err, user) {
+              User.findByResetToken(user.resetToken, function (err, user) {
                 should.exist(err);
                 should.not.exist(user);
                 done();
