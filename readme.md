@@ -53,6 +53,7 @@ Model it:
   * Write rest of Schema Tests:
     - write tests for id property
     - write tests for instance methods
+    - write tests for token
 
 ## License 
 
