@@ -11,7 +11,8 @@
   "dependencies": {
     "mongoose": "3.x.x",
     "bcrypt": "0.7.x",
-    "validator": "0.4.x"
+    "validator": "0.4.x",
+    "urlsafe-base64": "0.0.x"
   },
   "devDependencies": {
     "mocha": "1.7.x",
