@@ -1,6 +1,6 @@
 {
   "name": "basic-user-schema",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A barebones User Schema to extend from.",
   "keywords": ["template"],
   "author": "RGBboy <me@rgbboy.com>",
